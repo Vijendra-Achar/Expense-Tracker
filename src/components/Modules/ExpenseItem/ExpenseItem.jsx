@@ -8,7 +8,7 @@ function ExpenseItem(props) {
   return (
     <div className="expense-item">
       <div className="expense-item__date">
-        {props.expense.date.toISOString()}
+        <ExpenseDate date={props.expense.date} />
       </div>
       <div className="expense-item__details">
         <div className="title">{props.expense.title}</div>
