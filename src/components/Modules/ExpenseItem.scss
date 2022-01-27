@@ -1,0 +1,55 @@
+@import "./../../scss/variables";
+
+.expense-item {
+  margin: 1.5rem auto;
+  max-width: 50vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  &__date {
+    width: fit-content;
+    padding: 1rem;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  &__details {
+    .title {
+      font-weight: 600;
+      margin: 0.2rem 0;
+    }
+
+    .description {
+      margin: 0.2rem 0;
+    }
+  }
+
+  &__amount {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-weight: 600;
+
+    &.expense {
+      color: $red-color;
+    }
+
+    &.income {
+      color: $green-color;
+    }
+  }
+}
