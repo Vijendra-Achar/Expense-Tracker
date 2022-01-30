@@ -4,7 +4,7 @@ import ExpenseDate from "../ExpenseDate/ExpenseDate";
 
 import "./ExpenseItem.scss";
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   return (
     <div className="expense-item">
       <div className="expense-item__date">
@@ -22,6 +22,6 @@ function ExpenseItem(props) {
       </div>
     </div>
   );
-}
+};
 
 export default ExpenseItem;
