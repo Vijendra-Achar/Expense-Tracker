@@ -1,0 +1,27 @@
+@import "./../../../scss/components";
+@import "./../../../scss/variables";
+
+.new-expense-form {
+  width: 50vw;
+  margin: 1.5rem auto;
+  padding: 1rem;
+
+  border-radius: 5px;
+
+  box-shadow: $box-shadow;
+
+  &__heading {
+    text-align: center;
+
+    font-size: 1.5rem;
+    margin: 1rem 0;
+
+    font-weight: 600;
+  }
+
+  &__container {
+    width: inherit;
+    display: flex;
+    justify-content: space-around;
+  }
+}

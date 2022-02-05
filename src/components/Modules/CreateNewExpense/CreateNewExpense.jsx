@@ -2,9 +2,11 @@ import React from "react";
 
 import CreateNewExpenseForm from "./../CreateNewExpenseForm/CreateNewExpenseForm";
 
+import "./CreateNewExpense.scss";
+
 const CreateNewExpense = () => {
   return (
-    <div>
+    <div className="new-expense">
       <CreateNewExpenseForm />
     </div>
   );

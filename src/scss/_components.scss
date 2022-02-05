@@ -1,0 +1,42 @@
+@import "./variables";
+
+.form-control {
+  &__text-input {
+    display: flex;
+    flex-direction: column;
+
+    margin: 1rem;
+
+    input {
+      padding: 10px;
+      font-size: 1.25rem;
+      border: none;
+      outline: none;
+      box-shadow: $box-shadow;
+      border-radius: 5px;
+    }
+  }
+
+  &__button-input {
+    display: flex;
+    justify-content: center;
+
+    margin: 1rem;
+
+    button {
+      padding: 0.75rem 2.5rem;
+      font-size: 1.25rem;
+      border: none;
+      color: $black-color;
+      background: none;
+      border-radius: 5px;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        background: $green-color;
+        color: $white-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

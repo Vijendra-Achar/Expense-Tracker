@@ -1,4 +1,5 @@
 import ExpenseItem from "./components/Modules/ExpenseItem/ExpenseItem";
+import CreateNewExpenseForm from "./components/Modules/CreateNewExpenseForm/CreateNewExpenseForm";
 
 const App = () => {
   const expenseItems = [
@@ -38,6 +39,10 @@ const App = () => {
 
   return (
     <div>
+      <div>
+        <CreateNewExpenseForm />
+      </div>
+
       {expenseItems.map((expense) => {
         return <ExpenseItem key={expense.id} expense={expense} />;
       })}
