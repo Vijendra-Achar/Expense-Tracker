@@ -8,6 +8,8 @@ const CreateNewExpenseForm = () => {
   const [dateofExpense, setDateofExpense] = useState("");
   const [amount, setAmount] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
@@ -24,11 +26,39 @@ const CreateNewExpenseForm = () => {
     setAmount(event.target.value);
   };
 
+  const createNewExpenseSubmitHandler = (event) => {
+    event.preventDefault();
+
+    if (!title && !amount && !dateofExpense) {
+      setErrorMessage("Please fill up the form!");
+      return;
+    }
+
+    setErrorMessage("");
+
+    const expenseData = {
+      title,
+      desc,
+      amount: Number(amount),
+      date: new Date(dateofExpense),
+    };
+
+    console.log("The final Form data -> ", expenseData);
+  };
+
   return (
     <div className="new-expense-form">
       <div className="new-expense-form__heading"> Create a new expense 💸</div>
 
-      <form className="form-control">
+      <form onSubmit={createNewExpenseSubmitHandler} className="form-control">
+        {/* The Error Message */}
+
+        {errorMessage && (
+          <div className="form-control__error-message-container">
+            <div className="form-control__error-message">This is an error message</div>
+          </div>
+        )}
+
         <div className="new-expense-form__container">
           {/* Left coloumn */}
           <div className="new-expense-form__left-coloumn">
@@ -55,8 +85,8 @@ const CreateNewExpenseForm = () => {
 
             {/* Amount  Input */}
             <div className="form-control__text-input">
-              <label htmlFor="dateOfExpense">Date of expense</label>
-              <input type="text" id="dateOfExpense" onChange={amountChangeHandler} />
+              <label htmlFor="dateOfExpense">Amount spent</label>
+              <input type="number" step="0.01" id="dateOfExpense" onChange={amountChangeHandler} />
             </div>
           </div>
         </div>
