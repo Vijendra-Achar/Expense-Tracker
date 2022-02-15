@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./CreateNewExpenseForm.scss";
 
-const CreateNewExpenseForm = () => {
+const CreateNewExpenseForm = (props) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [dateofExpense, setDateofExpense] = useState("");
@@ -43,7 +43,13 @@ const CreateNewExpenseForm = () => {
       date: new Date(dateofExpense),
     };
 
-    console.log("The final Form data -> ", expenseData);
+    props.onNewExpenseSaved(expenseData);
+
+    // Reset Form Data
+    setAmount("");
+    setDateofExpense("");
+    setTitle("");
+    setDesc("");
   };
 
   return (
@@ -65,13 +71,13 @@ const CreateNewExpenseForm = () => {
             {/* Title Input */}
             <div className="form-control__text-input">
               <label htmlFor="title">Title</label>
-              <input type="text" id="title" onChange={titleChangeHandler} />
+              <input type="text" id="title" onChange={titleChangeHandler} value={title} />
             </div>
 
             {/* Descreption  Input */}
             <div className="form-control__text-input">
               <label htmlFor="desc">Description</label>
-              <input type="text" id="desc" onChange={descChangeHandler} />
+              <input type="text" id="desc" onChange={descChangeHandler} value={desc} />
             </div>
           </div>
 
@@ -80,13 +86,13 @@ const CreateNewExpenseForm = () => {
             {/* Date  Input */}
             <div className="form-control__text-input">
               <label htmlFor="dateInput">Date of expenditure</label>
-              <input type="date" id="dateInput" onChange={dateChangeHandler} />
+              <input type="date" id="dateInput" onChange={dateChangeHandler} value={dateofExpense} />
             </div>
 
             {/* Amount  Input */}
             <div className="form-control__text-input">
               <label htmlFor="dateOfExpense">Amount spent</label>
-              <input type="number" step="0.01" id="dateOfExpense" onChange={amountChangeHandler} />
+              <input type="number" step="0.01" id="dateOfExpense" onChange={amountChangeHandler} value={amount} />
             </div>
           </div>
         </div>

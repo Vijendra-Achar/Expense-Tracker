@@ -1,5 +1,7 @@
+import React from "react";
+
 import ExpenseItem from "./components/Modules/ExpenseItem/ExpenseItem";
-import CreateNewExpenseForm from "./components/Modules/CreateNewExpenseForm/CreateNewExpenseForm";
+import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExpense";
 
 const App = () => {
   const expenseItems = [
@@ -40,7 +42,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <CreateNewExpenseForm />
+        <CreateNewExpense />
       </div>
 
       {expenseItems.map((expense) => {
