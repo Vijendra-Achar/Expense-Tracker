@@ -55,7 +55,7 @@ const CreateNewExpenseForm = () => {
 
         {errorMessage && (
           <div className="form-control__error-message-container">
-            <div className="form-control__error-message">This is an error message</div>
+            <div className="form-control__error-message">{errorMessage}</div>
           </div>
         )}
 

@@ -32,6 +32,8 @@
       border-radius: 5px;
       box-shadow: $box-shadow;
 
+      transition: 0.25s all;
+
       &:hover {
         background: $green-color;
         color: $white-color;
