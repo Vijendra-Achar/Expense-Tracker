@@ -12,8 +12,6 @@ const CreateNewExpense = () => {
       ...newExpense,
       id: createNewExpenseId(),
     };
-
-    console.log("State is now listed up -> ", expenseObject);
   };
 
   return (
@@ -22,4 +20,5 @@ const CreateNewExpense = () => {
     </div>
   );
 };
+
 export default CreateNewExpense;

@@ -1,0 +1,43 @@
+@import "./../../../scss/variables";
+
+.data-display {
+  width: 50vw;
+  margin: 1.5rem auto;
+  padding: 1.5rem 1rem;
+
+  border-radius: 5px;
+
+  box-shadow: $box-shadow;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 1.25rem;
+  }
+
+  &__selector {
+    &__dropdown {
+      border-radius: 5px;
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+
+      overflow: hidden;
+      position: relative;
+
+      &::after {
+        content: "▼";
+        padding: 12px 8px;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        z-index: 1;
+        text-align: center;
+        width: 10%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+  }
+}

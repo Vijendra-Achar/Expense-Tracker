@@ -3,7 +3,11 @@ import React from "react";
 import ExpenseItem from "./components/Modules/ExpenseItem/ExpenseItem";
 import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExpense";
 
+import ExpensesDataDisplay from "./components/Modules/ExpensesDataDisplay/ExpensesDataDisplay";
+
 const App = () => {
+  const yearsList = [2022, 2021, 2020, 2019, 2018];
+
   const expenseItems = [
     {
       id: "e1",
@@ -43,6 +47,10 @@ const App = () => {
     <div>
       <div>
         <CreateNewExpense />
+      </div>
+
+      <div>
+        <ExpensesDataDisplay yearsList={yearsList} />
       </div>
 
       {expenseItems.map((expense) => {
