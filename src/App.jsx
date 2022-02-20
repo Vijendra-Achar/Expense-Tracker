@@ -6,7 +6,7 @@ import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExp
 import ExpensesDataDisplay from "./components/Modules/ExpensesDataDisplay/ExpensesDataDisplay";
 
 const App = () => {
-  const yearsList = [2022, 2021, 2020, 2019, 2018];
+  let yearsList = [];
 
   const expenseItems = [
     {
@@ -43,6 +43,17 @@ const App = () => {
     },
   ];
 
+  yearsList = expenseItems.map((expense) => {
+    const year = new Date(expense.date).getFullYear();
+    return year;
+  });
+
+  yearsList = [...new Set(yearsList)];
+
+  const selectedYearChangeHandler = (selectedYear) => {
+    console.log("The Year hosted up -> ", selectedYear);
+  };
+
   return (
     <div>
       <div>
@@ -50,7 +61,7 @@ const App = () => {
       </div>
 
       <div>
-        <ExpensesDataDisplay yearsList={yearsList} />
+        <ExpensesDataDisplay yearsList={yearsList} onSelectedYearChange={selectedYearChangeHandler} />
       </div>
 
       {expenseItems.map((expense) => {
