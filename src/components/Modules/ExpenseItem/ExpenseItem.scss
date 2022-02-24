@@ -5,13 +5,23 @@
   max-width: 50vw;
 
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
 
   padding: 1rem;
   border-radius: 0.5rem;
 
   box-shadow: $box-shadow;
+
+  &__data {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0 2rem;
+  }
 
   &__date {
     padding: 1rem;

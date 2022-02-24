@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { sampleData } from "./utilities/data";
+
+import { getYears } from "./utilities/utilities";
 
 import ExpenseItem from "./components/Modules/ExpenseItem/ExpenseItem";
 import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExpense";
@@ -6,62 +10,35 @@ import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExp
 import ExpensesDataDisplay from "./components/Modules/ExpensesDataDisplay/ExpensesDataDisplay";
 
 const App = () => {
-  let yearsList = [];
-
-  const expenseItems = [
-    {
-      id: "e1",
-      title: "Toilet Paper",
-      amount: 94.12,
-      desc: "Example Description One",
-      date: new Date(2020, 7, 14),
-      type: "income",
-    },
-    {
-      id: "e2",
-      title: "New TV",
-      amount: 799.49,
-      date: new Date(2021, 2, 12),
-      desc: "Example Description Two",
-      type: "expense",
-    },
-    {
-      id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      desc: "Example Description Three",
-      date: new Date(2021, 2, 28),
-      type: "income",
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      desc: "Example Description Four",
-      date: new Date(2021, 5, 12),
-      type: "expense",
-    },
-  ];
-
-  yearsList = expenseItems.map((expense) => {
-    const year = new Date(expense.date).getFullYear();
-    return year;
-  });
-
-  yearsList = [...new Set(yearsList)];
+  const [expenseItems, setExpenseItems] = useState(sampleData);
+  const [yearsList, setYearsList] = useState(getYears(expenseItems));
 
   const selectedYearChangeHandler = (selectedYear) => {
     console.log("The Year hosted up -> ", selectedYear);
   };
 
+  const handleNewExpense = (newExpense) => {
+    setExpenseItems((currentExpenseList) => {
+      const newArr = [newExpense, ...currentExpenseList];
+
+      setYearsList(() => getYears(newArr));
+
+      return newArr;
+    });
+  };
+
   return (
     <div>
       <div>
-        <CreateNewExpense />
+        <CreateNewExpense onNewExpenseAdded={handleNewExpense} />
       </div>
 
       <div>
-        <ExpensesDataDisplay yearsList={yearsList} onSelectedYearChange={selectedYearChangeHandler} />
+        <ExpensesDataDisplay
+          key={yearsList.length}
+          yearsList={yearsList}
+          onSelectedYearChange={selectedYearChangeHandler}
+        />
       </div>
 
       {expenseItems.map((expense) => {

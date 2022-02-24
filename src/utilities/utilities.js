@@ -26,3 +26,17 @@ const getAlphabets = () => {
 
   return { alphabetUpperCase, alphabetLowerCase };
 };
+
+// Get Distinct years
+export const getYears = (expenseArray) => {
+  let yearsList = [];
+
+  yearsList = expenseArray.map((expense) => {
+    const year = new Date(expense.date).getFullYear();
+    return year;
+  });
+
+  yearsList = [...new Set(yearsList)];
+
+  return yearsList;
+};

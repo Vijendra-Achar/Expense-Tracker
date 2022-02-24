@@ -6,12 +6,14 @@ import { createNewExpenseId } from "../../../utilities/utilities";
 
 import "./CreateNewExpense.scss";
 
-const CreateNewExpense = () => {
+const CreateNewExpense = (props) => {
   const newExpenseSavedHandler = (newExpense) => {
     const expenseObject = {
       ...newExpense,
       id: createNewExpenseId(),
     };
+
+    props.onNewExpenseAdded(expenseObject);
   };
 
   return (
