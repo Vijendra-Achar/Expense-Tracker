@@ -4,17 +4,19 @@ import { sampleData } from "./utilities/data";
 
 import { getYears } from "./utilities/utilities";
 
-import ExpenseItem from "./components/Modules/ExpenseItem/ExpenseItem";
 import CreateNewExpense from "./components/Modules/CreateNewExpense/CreateNewExpense";
 
 import ExpensesDataDisplay from "./components/Modules/ExpensesDataDisplay/ExpensesDataDisplay";
+import ExpenseItemsContainer from "./components/Modules/ExpenseItemsContainer/ExpenseItemsContainer";
 
 const App = () => {
   const [expenseItems, setExpenseItems] = useState(sampleData);
   const [yearsList, setYearsList] = useState(getYears(expenseItems));
 
+  const [selectedYear, setSelectedYear] = useState(null);
+
   const selectedYearChangeHandler = (selectedYear) => {
-    console.log("The Year hosted up -> ", selectedYear);
+    setSelectedYear(selectedYear);
   };
 
   const handleNewExpense = (newExpense) => {
@@ -41,9 +43,7 @@ const App = () => {
         />
       </div>
 
-      {expenseItems.map((expense) => {
-        return <ExpenseItem key={expense.id} expense={expense} />;
-      })}
+      <ExpenseItemsContainer key={selectedYear} selectedYear={selectedYear} expensesArray={expenseItems} />
     </div>
   );
 };

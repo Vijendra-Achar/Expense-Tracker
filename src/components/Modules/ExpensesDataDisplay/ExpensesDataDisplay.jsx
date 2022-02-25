@@ -26,6 +26,7 @@ const ExpensesDataDisplay = (props) => {
           name="filter-selector"
           id="filter-selector"
         >
+          <option value={null}>All</option>
           {listOfYears && listOfYears.length && listOfYears.map((year, index) => <option key={index}>{year}</option>)}
         </select>
       </div>
