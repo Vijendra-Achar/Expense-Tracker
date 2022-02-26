@@ -1,1 +1,25 @@
+@import "./../../../scss/components";
 
+.new-expense {
+  display: flex;
+  justify-content: center;
+
+  margin: 2.5rem auto;
+  &__create-button {
+    padding: 0.75rem 2.5rem;
+    font-size: 1.25rem;
+    border: none;
+    color: $black-color;
+    background: none;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+
+    transition: 0.25s all;
+
+    &:hover {
+      background: $green-color;
+      color: $white-color;
+      cursor: pointer;
+    }
+  }
+}

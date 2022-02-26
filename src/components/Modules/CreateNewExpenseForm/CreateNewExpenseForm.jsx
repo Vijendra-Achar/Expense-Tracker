@@ -26,6 +26,10 @@ const CreateNewExpenseForm = (props) => {
     setAmount(event.target.value);
   };
 
+  const handleFormHide = () => {
+    props.handleCreateNewExpenseFormCancel();
+  };
+
   const createNewExpenseSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -44,6 +48,9 @@ const CreateNewExpenseForm = (props) => {
     };
 
     props.onNewExpenseSaved(expenseData);
+
+    // Hide the form
+    handleFormHide();
 
     // Reset Form Data
     setAmount("");
@@ -99,6 +106,12 @@ const CreateNewExpenseForm = (props) => {
 
         <div className="form-control__button-input">
           <button type="submit">Create</button>
+        </div>
+
+        <div className="form-control__button-input">
+          <button onClick={handleFormHide} type="button">
+            Cancel
+          </button>
         </div>
       </form>
     </div>
